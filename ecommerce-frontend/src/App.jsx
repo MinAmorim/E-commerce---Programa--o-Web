@@ -1,11 +1,17 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import Login from "./Components/Login/Login";
-import Cadastro from "./Components/Cadastro/Cadastro";
+import Home from "./Components/Home/Home";
+import AtualizarCadastro from "./Components/AtualizarCadastro/AtualizarCadastro";
 
 function App() {
   return (
     <div className="App">
-      <Cadastro />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/atualizar" element={<AtualizarCadastro />} />
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,42 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffe6f2;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  color: #ff4081;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.update {
+  background-color: #ff80ab;
+  color: white;
+}
+
+.logout {
+  background-color: #f50057;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
