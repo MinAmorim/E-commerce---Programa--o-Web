@@ -1,0 +1,79 @@
+.home-container {
+  background: linear-gradient(180deg, #ffe6f2, #fff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  color: #5a0033;
+}
+
+.titulo-home {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #b3006e;
+}
+
+.card-atualizar {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  width: 320px;
+  text-align: center;
+}
+
+.card-atualizar h2 {
+  color: #d63384;
+  margin-bottom: 15px;
+}
+
+.form-atualizar input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ff99cc;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.form-atualizar input:focus {
+  border-color: #ff66b2;
+  box-shadow: 0 0 5px #ffb6d9;
+}
+
+.btn {
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.logout {
+  background-color: #ffb6c1;
+  color: #fff;
+}
+
+.logout:hover {
+  background-color: #ff69b4;
+}
+
+.atualizar {
+  background-color: #d63384;
+  color: #fff;
+  width: 100%;
+}
+
+.atualizar:hover {
+  background-color: #b3006e;
+}
+
+.botoes {
+  margin-bottom: 30px;
+}

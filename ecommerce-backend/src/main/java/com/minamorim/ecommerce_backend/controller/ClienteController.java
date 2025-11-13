@@ -7,8 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:5181") 
 @RestController
-@RequestMapping("/api/cliente") 
+@RequestMapping("/api/cliente")
 public class ClienteController {
 
     private final ClienteService clienteService;
