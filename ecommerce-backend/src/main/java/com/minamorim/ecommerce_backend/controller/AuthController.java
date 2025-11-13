@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth") 
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private final AuthService authService;
@@ -17,7 +17,6 @@ public class AuthController {
         this.authService = authService;
     }
 
-    
     @PostMapping("/register")
     public ResponseEntity<?> registrar(@RequestBody RegistoDTO dto) {
         try {
@@ -28,14 +27,13 @@ public class AuthController {
         }
     }
 
-    
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO dto) {
         try {
             TokenDTO token = authService.login(dto);
             return ResponseEntity.ok(token);
         } catch (Exception e) {
-            return ResponseEntity.status(401).body("Login ou senha incorreta"); //
+            return ResponseEntity.status(401).body("Login ou senha incorreta");
         }
     }
 }

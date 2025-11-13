@@ -20,7 +20,7 @@ public class ClienteController {
    
     @GetMapping("/me")
     public ResponseEntity<Usuario> getMeusDados(Authentication authentication) {
-        // authentication.getName() retorna o 'login' do usuário (como definimos no UserDetails)
+        
         String login = authentication.getName();
         Usuario usuario = clienteService.getMeusDados(login);
         return ResponseEntity.ok(usuario);

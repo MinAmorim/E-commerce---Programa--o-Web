@@ -19,8 +19,8 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
 
-    public AuthService(UsuarioRepository usuarioRepository, 
-                       PasswordEncoder passwordEncoder, 
+    public AuthService(UsuarioRepository usuarioRepository,
+                       PasswordEncoder passwordEncoder,
                        AuthenticationManager authenticationManager,
                        JwtUtil jwtUtil) {
         this.usuarioRepository = usuarioRepository;
@@ -29,21 +29,20 @@ public class AuthService {
         this.jwtUtil = jwtUtil;
     }
 
-    
     public TokenDTO registrar(RegistoDTO dto) {
-        if (usuarioRepository.findByLogin(dto.login()).isPresent()) {
-            throw new RuntimeException("Login já cadastrado");
+
+        if (usuarioRepository.findByLogin(dto.email()).isPresent()) {
+            throw new RuntimeException("Email já cadastrado como login");
         }
 
         String senhaCriptografada = passwordEncoder.encode(dto.senha());
 
         Usuario novoUsuario = new Usuario(
-            dto.nome(),
-            dto.endereco(),
-            dto.email(),
-            dto.login(),
-            senhaCriptografada,
-            "ROLE_USER" 
+                dto.nome(),
+                dto.email(),
+                dto.email(), // login = e-mail
+                senhaCriptografada,
+                "ROLE_USER"
         );
 
         usuarioRepository.save(novoUsuario);
@@ -53,12 +52,13 @@ public class AuthService {
     }
 
     public TokenDTO login(LoginRequestDTO dto) {
+
         authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(dto.login(), dto.senha())
+                new UsernamePasswordAuthenticationToken(dto.login(), dto.senha())
         );
 
         Usuario usuario = usuarioRepository.findByLogin(dto.login())
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado após autenticação"));
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         String token = jwtUtil.generateToken(usuario);
         return new TokenDTO(token);
